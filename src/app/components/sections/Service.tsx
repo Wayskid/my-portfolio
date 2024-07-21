@@ -6,7 +6,7 @@ import { TbCodeDots } from "react-icons/tb";
 
 export default function Service() {
   return (
-    <div id="service" className="grid gap-10 md:gap-14 py-10 md:py-16">
+    <div id="service" className="grid  gap-10 md:gap-14 py-10 md:py-16">
       <div className="w-[min(92rem,100%)] mx-auto px-4 md:px-12 lg:px-32 mb-16 grid gap-5">
         <p className="w-[min(40rem,100%)] text-3xl md:text-4xl font-medium justify-self-center text-center">
           Comprehensive Modern{" "}
