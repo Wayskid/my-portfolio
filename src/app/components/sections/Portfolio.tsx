@@ -1,7 +1,13 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { collection, getDocs, DocumentData } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  DocumentData,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import { db } from "@/app/firebase";
 
 export default function Portfolio() {
@@ -15,14 +21,19 @@ export default function Portfolio() {
       code_link: "",
     },
   ]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     async function getList() {
-      const querySnapshot = await getDocs(collection(db, "Portfolio_List"));
+      setLoading(true);
+      const docRef = collection(db, "Portfolio_List");
+      const q = query(docRef, orderBy("createdAt", "desc"));
+      const querySnapshot = await getDocs(q);
       const arr: DocumentData[] = [];
       querySnapshot.forEach((doc) => {
         arr.push(doc.data());
       });
-      setList([...arr, ...arr, ...arr, ...arr, ...arr, ...arr]);
+      setList([...arr]);
+      setLoading(false);
     }
     getList();
   }, []);
@@ -37,8 +48,10 @@ export default function Portfolio() {
           Discover my range of web development projects, from sleek websites to
           robust applications.
         </p>
-        <div className="flex flex-col-reverse flex-wrap sm:flex-row-reverse mx-auto gap-7 mt-5">
-          {list.length > 1 &&
+        <div className="flex flex-wrap mx-auto gap-y-12 gap-x-7 mt-5">
+          {loading ? (
+            <>Hello</>
+          ) : (
             list?.map((item, index) => (
               <div
                 key={index}
@@ -59,7 +72,7 @@ export default function Portfolio() {
                     {item.tech_stack.map((lang: string, index: number) => (
                       <p
                         key={index}
-                        className="uppercase text-sm font-semibold"
+                        className="uppercase text-sm font-extralight text-primary"
                       >
                         {lang}
                       </p>
@@ -75,7 +88,8 @@ export default function Portfolio() {
                   </div>
                 </div>
               </div>
-            ))}
+            ))
+          )}
         </div>
       </div>
     </div>

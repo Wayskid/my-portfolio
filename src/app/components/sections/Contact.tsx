@@ -23,7 +23,7 @@ export default function Contact() {
             <div className="p-4 rounded-sm bg-sub">
               <FaLocationDot className="text-2xl" />
             </div>
-            <div className="space-y-1">
+            <div className="">
               <p className="text-lg font-semibold">Location</p>
               <p className="text-semibold">England, UK</p>
             </div>
@@ -32,7 +32,7 @@ export default function Contact() {
             <div className="p-4 rounded-sm bg-sub">
               <MdEmail className="text-2xl" />
             </div>
-            <div className="space-y-1">
+            <div className="">
               <p className="text-lg font-semibold">Email</p>
               <p className="text-semibold">wayskid02@gmail.com</p>
             </div>
