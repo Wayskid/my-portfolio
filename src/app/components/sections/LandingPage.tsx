@@ -59,10 +59,7 @@ export default function LandingPage() {
       </div>
       <div className="w-[min(92rem,100%)] mx-auto px-4 md:px-12 lg:px-32 grid">
         {loading ? (
-          <div className="*:bg-red-500">
-            <Skeleton height={30} width={30} count={5} />
-            hello
-          </div>
+          <div className="text-center">Loading...</div>
         ) : (
           <Swiper
             effect={"coverflow"}

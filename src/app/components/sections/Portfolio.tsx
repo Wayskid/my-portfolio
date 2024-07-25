@@ -9,6 +9,8 @@ import {
   query,
 } from "firebase/firestore";
 import { db } from "@/app/firebase";
+import Link from "next/link";
+import { RiExternalLinkFill } from "react-icons/ri";
 
 export default function Portfolio() {
   const [list, setList] = useState<DocumentData[]>([
@@ -50,7 +52,7 @@ export default function Portfolio() {
         </p>
         <div className="flex flex-wrap mx-auto gap-y-12 gap-x-7 mt-5">
           {loading ? (
-            <>Hello</>
+            <div className="text-center">Loading...</div>
           ) : (
             list?.map((item, index) => (
               <div
@@ -68,13 +70,13 @@ export default function Portfolio() {
                 <div className="grid gap-2">
                   <p className="text-2xl font-semibold">{item.title}</p>
                   <p className="text-sm">{item.description}</p>
-                  <div className="flex gap-x-2 flex-wrap">
+                  <div className="flex gap-x-1 flex-wrap">
                     {item.tech_stack.map((lang: string, index: number) => (
                       <p
                         key={index}
                         className="uppercase text-sm font-extralight text-primary"
                       >
-                        {lang}
+                        {lang} {index + 1 < item.tech_stack.length && "|"}
                       </p>
                     ))}
                   </div>
@@ -85,6 +87,22 @@ export default function Portfolio() {
                         {index + 1 < item.tags.length && " |"}
                       </p>
                     ))}
+                  </div>
+                  <div className="flex gap-5 text-sm">
+                    <Link
+                      href={item.demo_link}
+                      target="_blank"
+                      className="border-b flex gap-1 items-center text-primary"
+                    >
+                      Live demo <RiExternalLinkFill />
+                    </Link>
+                    <Link
+                      href={item.code_link}
+                      target="_blank"
+                      className="border-b flex gap-1 items-center"
+                    >
+                      Github code <RiExternalLinkFill />
+                    </Link>
                   </div>
                 </div>
               </div>

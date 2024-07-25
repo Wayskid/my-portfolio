@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import WaysLogo from "./assets/images/logo.png";
@@ -10,8 +11,21 @@ import Contact from "./components/sections/Contact";
 import { BsGithub } from "react-icons/bs";
 import { FiGithub } from "react-icons/fi";
 import { SlSocialLinkedin, SlSocialTwitter } from "react-icons/sl";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { PiX } from "react-icons/pi";
 
 export default function Home() {
+  const [mobileMenuShown, setMobileMenuShown] = useState(false);
+  const pathname = usePathname();
+  console.log(pathname);
+  function matchRoute(route: string) {
+    if (pathname === route) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   return (
     <main className="text-white">
       <nav id="home" className="fixed z-40 top-0 w-full">
@@ -35,14 +49,62 @@ export default function Home() {
           </Link>
           <button
             className="md:hidden text-4xl transition duration-1000 ml-5 lg:ml-8"
-            // onClick={() => setMobileMenuShown(!mobileMenuShown)}
+            onClick={() => setMobileMenuShown(!mobileMenuShown)}
           >
-            {/* {mobileMenuShown ? ( */}
-            {/* // <PiX className="transition duration-1000" /> */}
-            {/* // ) : ( */}
-            <GrMenu className="transition duration-1000 text-primary" />
-            {/* // )} */}
+            {mobileMenuShown ? (
+              <PiX className="transition duration-1000 text-primary" />
+            ) : (
+              <GrMenu className="transition duration-1000 text-primary" />
+            )}
           </button>
+        </div>
+        <div
+          className={`fixed bg-secondary top-0 w-full h-full md:hidden transition-opacity z-30 pt-[87px] ${
+            !mobileMenuShown
+              ? "-translate-y-[200%] opacity-0"
+              : "translate-y-[0] opacity-100"
+          }
+        `}
+        >
+          <div className="grid *:grid *:items-center h-full text-center text-4xl *:border-b">
+            <Link
+              href="#home"
+              className={`${matchRoute("/home") && "font-bold"}`}
+              onClick={() => setMobileMenuShown(false)}
+            >
+              Home
+            </Link>
+            <Link
+              href="#service"
+              className={`${matchRoute("service") && "font-bold"}`}
+              onClick={() => setMobileMenuShown(false)}
+            >
+              Service
+            </Link>
+            <Link
+              href="#portfolio"
+              className={`${matchRoute("portfolio") && "font-bold"}`}
+              onClick={() => setMobileMenuShown(false)}
+            >
+              Portfolio
+            </Link>
+            <Link
+              href="#testimonial"
+              className={`${matchRoute("testimonial") && "font-bold"}`}
+              onClick={() => setMobileMenuShown(false)}
+            >
+              Testimonial
+            </Link>
+            <Link
+              href="#contact"
+              className={`${
+                matchRoute("#contact") && "font-bold"
+              } border-transparent`}
+              onClick={() => setMobileMenuShown(false)}
+            >
+              Contact
+            </Link>
+          </div>
         </div>
       </nav>
       <div className="mt-[87px] grid">
