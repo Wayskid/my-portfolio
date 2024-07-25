@@ -30,7 +30,7 @@
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: min(500px, 100%);
+  width: min(500px, 100%) !important;
 }
 
 .swiper-slide img {
