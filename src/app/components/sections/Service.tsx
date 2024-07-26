@@ -33,12 +33,12 @@ export default function Service() {
             <div className="grid">
               <p className="text-2xl md:text-3xl font-medium mb-1">About me</p>
               <p className="text-sm">
-                As a passionate and driven self-taught web developer, I've
+                {`As a passionate and driven self-taught web developer, I've
                 always been fascinated by the endless possibilities of the
                 digital world. Through dedication and perseverance, I've
                 cultivated a strong foundation in web development, leveraging
                 online resources, coding challenges, and real-world projects to
-                hone my skills.
+                hone my skills.`}
               </p>
             </div>
           </div>
