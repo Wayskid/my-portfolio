@@ -9,13 +9,7 @@ import "swiper/css/pagination";
 import { EffectCoverflow, Autoplay, Navigation } from "swiper/modules";
 import "./../../globals.css";
 import { FaQuoteRight } from "react-icons/fa";
-import {
-  collection,
-  DocumentData,
-  getDocs,
-  orderBy,
-  query,
-} from "firebase/firestore";
+import { collection, DocumentData, getDocs, query } from "firebase/firestore";
 import { db } from "@/app/firebase";
 
 export default function Testimonial() {
@@ -96,26 +90,34 @@ export default function Testimonial() {
               rotate: 0,
               stretch: 0,
               depth: 300,
-              modifier: 2.3,
+              modifier: 1.3,
               slideShadows: true,
             }}
             modules={[EffectCoverflow, Autoplay, Navigation]}
-            className="mySwiper"
+            className="my-Swiper"
           >
             {testimonies.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="grid gap-4 bg-sub text-white p-5">
+                <div className="grid grid-rows-[auto,1fr,auto] gap-4 bg-sub text-white p-5 h-full">
                   <FaQuoteRight className="text-4xl" />
-                  <p className="">{item.content}</p>
+                  <p className="grid items-center">{item.content}</p>
                   <div className="flex gap-2 mr-auto items-center">
-                    <Image
-                      src={item.image}
-                      alt={item.name + "_image"}
-                      width="0"
-                      height="0"
-                      sizes="100vw"
-                      className="w-10 h-10 object-cover rounded-full"
-                    />
+                    <div className="w-10 h-10">
+                      {item.image.length > 0 ? (
+                        <Image
+                          src={item.image}
+                          alt={item.name + "_image"}
+                          width="0"
+                          height="0"
+                          sizes="100vw"
+                          className="w-full h-full object-cover rounded-full shrink-0"
+                        />
+                      ) : (
+                        <p className="w-10 h-10 grid place-items-center font-semibold text-lg bg-slate-700 rounded-full shrink-0">
+                          {item.name.slice(0, 1)}
+                        </p>
+                      )}
+                    </div>
                     <div className="text-sm shrink-0">
                       <p className="font-semibold">{item.name}</p>
                       <p className="">{item.title}</p>

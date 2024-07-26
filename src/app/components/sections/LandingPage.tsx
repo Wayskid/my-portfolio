@@ -43,7 +43,6 @@ export default function LandingPage() {
     getList();
   }, []);
 
-  console.log(list);
   return (
     <div className="py-10 md:py-16 ">
       <div className="w-[min(92rem,100%)] mx-auto px-4 md:px-12 lg:px-32 mb-16 grid gap-5 text-center justify-items-center">

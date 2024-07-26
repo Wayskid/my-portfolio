@@ -37,3 +37,10 @@
   display: block;
   width: 100%;
 }
+
+.my-Swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: min(400px, 100%) !important;
+  height: 292px !important;
+}

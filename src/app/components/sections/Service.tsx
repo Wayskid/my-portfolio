@@ -3,6 +3,9 @@ import React from "react";
 import MyImage from "./../../assets/images/MyImage.png";
 import { LuCode2, LuFrame } from "react-icons/lu";
 import { TbCodeDots } from "react-icons/tb";
+import { BiCertification, BiTrophy } from "react-icons/bi";
+import { FiClock } from "react-icons/fi";
+import { SiPolymerproject } from "react-icons/si";
 
 export default function Service() {
   return (
@@ -17,7 +20,7 @@ export default function Service() {
           Leveraging the latest technologies and trends to craft robust,
           scalable, and secure web applications.
         </p>
-        <div className="grid md:grid-cols-2 mx-auto gap-5 *:rounded-sm mt-5">
+        <div className="grid md:grid-cols-[0.6fr,1fr] mx-auto gap-5 *:rounded-sm mt-5">
           <div className="grid sm:grid-cols-2 border-2 border-sub p-5 items-center gap-3 md:grid-cols-1 md:row-span-2">
             <Image
               src={MyImage}
@@ -25,59 +28,46 @@ export default function Service() {
               width="0"
               height="0"
               sizes="100vw"
-              className="w-full h-auto"
+              className="max-w-[400px] object-contain justify-self-center w-full h-auto"
             />
             <div className="grid">
-              <p className="text-2xl md:text-3xl font-medium mb-1">
-                Lorem sfgh sgshsg fgwwww ssv
-              </p>
+              <p className="text-2xl md:text-3xl font-medium mb-1">About me</p>
               <p className="text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Reprehenderit repellendus, quod rem, quos labore dolore officiis
-                placeat repudiandae iste beatae aliquid id? Consectetur
-                voluptatem ex minus architecto consequatur voluptatum minima!
+                As a passionate and driven self-taught web developer, I've
+                always been fascinated by the endless possibilities of the
+                digital world. Through dedication and perseverance, I've
+                cultivated a strong foundation in web development, leveraging
+                online resources, coding challenges, and real-world projects to
+                hone my skills.
               </p>
             </div>
           </div>
-          <div className="grid sm:grid-cols-2 border-2 border-sub p-5 items-center gap-3">
-            <Image
-              src={MyImage}
-              alt=""
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-full h-auto object-contain"
-            />
-            <div className="grid">
-              <p className="text-2xl font-medium mb-1">
-                Lorem sfgh sgshsg fgwwww ssv
-              </p>
-              <p className="text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Reprehenderit repellendus, quod rem, quos labore dolore officiis
-                placeat repudiandae iste.
-              </p>
+          <div className="grid border-2 border-sub p-6 grid-cols-2 justify-items-center *:grid *:justify-items-center gap-6">
+            <div className="">
+              <FiClock className="text-4xl text-primary" />
+              <p className="text-xl">Work Hours</p>
+              <p className="text-4xl font-semibold">21678</p>
+            </div>
+            <div className="">
+              <SiPolymerproject className="text-4xl text-primary" />
+              <p className="text-xl">Projects</p>
+              <p className="text-4xl font-semibold">74</p>
+            </div>
+            <div className="">
+              <BiCertification className="text-4xl text-primary" />
+              <p className="text-xl">Certifications</p>
+              <p className="text-4xl font-semibold">7</p>
+            </div>
+            <div className="">
+              <BiTrophy className="text-4xl text-primary" />
+              <p className="text-xl">Awards</p>
+              <p className="text-4xl font-semibold">2</p>
             </div>
           </div>
-          <div className="grid sm:grid-cols-2 border-2 border-sub p-5 items-center gap-3">
-            <Image
-              src={MyImage}
-              alt=""
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-full h-auto object-contain"
-            />
-            <div className="grid">
-              <p className="text-2xl font-medium mb-1">
-                Lorem sfgh sgshsg fgwwww ssv
-              </p>
-              <p className="text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Reprehenderit repellendus, quod rem, quos labore dolore officiis
-                placeat repudiandae iste.
-              </p>
-            </div>
+          <div className="grid border-2 border-sub p-5 text-xl font-semibold place-items-center text-center">
+            Web Development | Responsive Design | Front-end Development |
+            Back-end Development | Website Maintenance | E-commerce Solutions |
+            Website Redesign | Website Optimization | Custom Solutions
           </div>
         </div>
       </div>
