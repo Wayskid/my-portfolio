@@ -97,8 +97,8 @@ export default function Service() {
             <div className="space-y-2">
               <p className="text-3xl font-medium">Frameworks</p>
               <p className="">
-                React.js, Node.js (Express), Mongoose, Flask, Next.js, Tailwind
-                CSS, Material-UI, SASS (SCSS), Unit Testing (Jest), Angular
+                React.js, Vue.js Node.js (Express), Mongoose, Flask, Next.js,
+                Tailwind CSS, Material-UI, SASS (SCSS), Unit Testing (Jest)
               </p>
             </div>
           </div>
@@ -107,8 +107,8 @@ export default function Service() {
             <div className="space-y-2">
               <p className="text-3xl font-medium">Others</p>
               <p className="">
-                Git, Docker, Figma, AWS, VS Code, MongoDB, Firebase, Agile,
-                Scrum, Data Analytics
+                Git, Docker, Figma, AWS, VS Code, MongoDB, Firebase,
+                Agile/Scrum, Data Analytics
               </p>
             </div>
           </div>
